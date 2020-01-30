@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link class="capturaStyle" rel="stylesheet" href="../stylesNight.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap"
+            rel="stylesheet"
+        />
+        <title>Proyecto Gifos</title>
+    </head>
+    <body>
+        <div class="content">
+            <header class="encabezadoEnCaptura">
+                <div class="visit_count">
+                    <p>
+                        ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
+                        visitas: 12.765.803
+                    </p>
+                </div>
+                <div class="encabezado">
+                    <div class="icon_btns icon_btnsEnCaptura">
+                        <a href="./../../index.html">
+                            <img src="../../assets/arrow.svg" alt="arrow volver" class="logoVolver">
+                        </a>
+                        <a href="#">
+                            <img src="../../assets/gifOF_logo.png" alt="logo" class="logo logoCaptura"/>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <section class="inicio">
+                    <div class="creandoGifosCont">
+                        <div class="creandoGifosTit">
+                            <p>Crear Guifos</p>
+                        </div>
+                        <div class="creandoGifosTexto">
+                            <h3>Aqui podras crear tus guifos</h3>
+                            <div class="creandoGifosInstrucciones">
+                                <p>
+                                    Crear tu <span class="italicGuifos">guifo</span> es muy facil, graba cualquier imagen
+                                    con tu camara y obtén guifos personalizados
+                                </p>
+                                <ol>
+                                    <li>
+                                        <span>1)</span> Dar permisos de acceso a la cámara(solo por el tiempo de
+                                        uso)
+                                    </li>
+                                    <li><span>2)</span> Capturar tu momento guifo</li>
+                                    <li><span>3)</span> Revisar el momento</li>
+                                    <li><span>4)</span> Listo para subir y compartir</li>
+                                </ol>
+                                <p>¿Quieres comenzar a crear tu <span class="italicGuifos">guifo</span> ahora?</p>
+                            </div>
+                            <div class="creandoGifosButtons">
+                                <button class="creandoGifosCancelar">Cancelar</button>
+                                <button class="creandoGifosComenzar">Comenzar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="enCaptura">
+                    <div class="creandoGifosCont chequeoCont">
+                        <div class="creandoGifosTit chequeoTitulo">
+                            <p>Un chequeo antes de empezar</p>
+                            <button class="btn-Close"></button>
+                        </div>
+                        <div class="creandoGifosTexto">
+                            <div class="chequeoImagenCont">
+                                <div id="gif-cont" class="creandoGifosInstrucciones chequeoImagen">
+                                    <video id="video" class="display" src="#"></video>
+                                    <div class="esperaSubiendo">
+                                        <div class="globoTerraqueo"></div>
+                                        <p class="txt1">Estamos subiendo tu guifo</p>
+                                        <div class="barraProgreso"></div>
+                                        <p class="txt2">Tiempo restante: <span>38 años</span> algunos minutos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Saco vistaCont de creandoGifos Buttons cuando esta en pantalla con listo -->
+                            <div class="creandoGifosButtons"> 
+                                <button class="btn-Capturar">Capturar</button>
+                                <div class="timer"></div>
+                                <button id="listo" class="btn-listo">Listo</button>
+                                <button class="vistaPlay"></button>
+                                <div class="barraProgreso"></div>
+                                <button class="btn-RepetirCaptura">Repetir Captura</button>
+                                <button class="btn-SubirGifo">Subir Gifo</button>
+                                <button class="btn-Cancelar">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="exito">
+                    <div class="creandoGifosCont exitoCont">
+                        <div class="creandoGifosTit">
+                            <p>Guifo Subido con Éxito</p>
+                            <button class="closeExito"></button>
+                        </div>
+                        <div class="creandoGifosTexto exitoElementos">
+                            <div class="gifoPrevis">
+                                
+                            </div>                            
+                            <div class="creandoGifosButtons">
+                                <p>Guifo creado con éxito</p>
+                                <button class="btn-copiarExito">Copiar Enlace Guifo</button>
+                                <a href="#" id="descargarGif" download><button class="btn-descargarExito">Descargar Guifo</button></a>                                
+                                <button class="btn-listoExito">Listo</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="misGifosCont tendenciasContainer">
+                        <div class="misGifos_txt tendencias_txt">
+                            <h2><span id="misGifosTitulo"></span>Mis gifos</h2>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
+    <script src="../../scripts/upload.js"></script>
+</html>

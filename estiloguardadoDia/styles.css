@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.visit_count {
+  border: 1px solid;
+  width: 100vw;
+  height: 23px;
+  margin: auto;
+}
+
+.encabezado {
+  border: 1px solid;
+  width: 1200px;
+  height: 214px;
+  margin: auto;
+}
+
+.icon_btns {
+  border: 1px solid red;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 685.4px 144px 167px auto;
+      grid-template-columns: 685.4px 144px 167px auto;
+  grid-gap: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 115px;
+}
+
+.icon_btns .logo {
+  width: 102.6px;
+  height: 64px;
+}
+
+.icon_btns .btn_creargifos {
+  width: 144px;
+  height: 36px;
+}
+
+.icon_btns .btn_dropDown {
+  border: 2px solid;
+  width: 167px;
+  height: 36px;
+}
+
+.icon_btns .btn_misGuifos {
+  width: 76px;
+  height: 18px;
+}
+
+.imput_buscar {
+  border: 1px solid blue;
+  width: 1200px;
+  height: 99px;
+}
+
+.imput_buscar .head {
+  border: 1px solid;
+  height: 24px;
+}
+
+.imput_buscar .buscarContainer {
+  height: 75px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1057px 102px;
+      grid-template-columns: 1057px 102px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.imput_buscar .buscarContainer .imput_text {
+  margin-left: 15px;
+}
+
+.imput_buscar .buscarContainer .btn_buscar {
+  margin-left: 8px;
+}
+
+.sugerimosContainer {
+  height: 425px;
+  width: 1200px;
+  margin: auto;
+  border: 1px solid;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 288px 288px 288px 288px;
+      grid-template-columns: 288px 288px 288px 288px;
+  -ms-grid-rows: 32px 313px;
+      grid-template-rows: 32px 313px;
+  grid-row-gap: 16px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sugerimosContainer .sugerimos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: lightblue;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1 /5;
+}
+
+.sugerimosContainer .sugerimos span {
+  padding-left: 7px;
+}
+
+.sugerimosContainer .gifos {
+  border: 2px solid;
+  height: 313px;
+}
+
+.sugerimosContainer .gifos .gif_titulo {
+  border: 1px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sugerimosContainer .gifos .gif_titulo span {
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.sugerimosContainer .gifos .gif_titulo .gif_close {
+  border: 1px solid;
+  width: 16px;
+  height: 14px;
+  margin-right: 8px;
+}
+
+.sugerimosContainer .gifos .gif_imagen {
+  border: 1px solid blue;
+  height: 93%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.sugerimosContainer .gifos .gif_imagen .gif_vermas {
+  border: 1px solid;
+  width: 81px;
+  height: 34px;
+  margin-left: 7px;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tendenciasContainer {
+  max-width: 1200px;
+  border: 1px solid;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 288px 288px 288px 288px;
+      grid-template-columns: 288px 288px 288px 288px;
+  -ms-grid-rows: 32px 304px 304px 304px;
+      grid-template-rows: 32px 304px 304px 304px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tendenciasContainer .tendencias_txt {
+  background-color: red;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1 / 5;
+}
+
+.tendenciasContainer .gif_tendencias {
+  border: 1px solid;
+  margin-top: 17px;
+}
+/*# sourceMappingURL=styles.css.map */

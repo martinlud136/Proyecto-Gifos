@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link id="cambiarStyle" rel="stylesheet" href="./styles/styles.css"/>
+        <link
+            href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap"
+            rel="stylesheet"
+        />
+        <title>Proyecto Gifos</title>
+    </head>
+    <body onload="cargaTendencias(), cargaSugerimos()">
+        <div class="content">
+            <header>
+                <div class="visit_count">
+                    <p>
+                        ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
+                        visitas: 12.765.803
+                    </p>
+                </div>
+                <div class="encabezado">
+                    <div class="icon_btns">
+                        <a href="index.html">
+                            <img src="./assets/gifOF_logo.png" alt="logo" class="logo" />
+                        </a>
+                        <a href="./styles/capturaGifos/capturaGifos.html">
+                            <button class="btn_creargifos">Crear Gifos</button>
+                        </a>
+                        <div class="btn_dropDown">
+                            <button class="btn_elegirtema">
+                                <span class="txtTema">Elegir tema</span>
+                            </button>
+                            <ul class="btn_dropContent">
+                                <li>
+                                    <button class="day"><span>S</span>ailor Day</button>
+                                </li>
+                                <li>
+                                    <button class="night"><span>S</span>ailor Night</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#" class="enlace_misGuifos"><span>M</span>is Guifos</a>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="imput_buscar">
+                    <div class="head"><p>Buscar</p></div>
+                    <div class="buscarContainer">
+                        <input
+                            type="text"
+                            id="imput_text"
+                            class="imput_text"
+                            placeholder="Busca gifts, hashtags, temas, busca lo que quieras..."
+                        />
+                        <button id="btn_buscar" class="btn_buscar"><p>Buscar</p></button>
+                        <ul class="listaSugeridaContent">
+                            <li>
+                                <button id="btn-Sug1" class="resultadoSugerido">
+                                    <p class="resultado"></p>
+                                </button>
+                            </li>
+                            <li>
+                                <button id="btn-Sug2" class="resultadoSugerido">
+                                    <p class="resultado"></p>
+                                </button>
+                            </li>
+                            <li>
+                                <button id="btn-Sug3" class="resultadoSugerido"><p class="resultado"></p></button>
+                            </li>
+                        </ul>
+                        <ul class="resultadoBusquedaContent">
+                        </ul>
+                    </div>
+                </div>
+                <div class="sugerimosContainer">
+                    <div class="sugerimos">
+                        <h2>Hoy te sugerimos</h2>
+                    </div>
+                    <div class="gifos">
+                        <div class="gif_titulo">
+                            <span class='hash'></span>
+                            <button class="gif_close"></button>
+                        </div>
+                        <div class="gif_imagen">
+                            <img class="gif_sugerimos" alt="" />
+                            <button class="gif_vermas">ver mas...</button>
+                        </div>
+                    </div>
+                    <div class="gifos">
+                        <div class="gif_titulo">
+                            <span class='hash'></span>
+                            <button class="gif_close"></button>
+                        </div>
+                        <div class="gif_imagen">
+                            <img class="gif_sugerimos" alt="" />
+                            <button class="gif_vermas">ver mas...</button>
+                        </div>
+                    </div>
+                    <div class="gifos">
+                        <div class="gif_titulo">
+                            <span class='hash'></span>
+                            <button class="gif_close"></button>
+                        </div>
+                        <div class="gif_imagen">
+                            <img class="gif_sugerimos" alt="" />
+                            <button class="gif_vermas">ver mas...</button>
+                        </div>
+                    </div>
+                    <div class="gifos">
+                        <div class="gif_titulo">
+                            <span class='hash'></span>
+                            <button class="gif_close"></button>
+                        </div>
+                        <div class="gif_imagen">
+                            <img class="gif_sugerimos" alt="" />
+                            <button class="gif_vermas">ver mas...</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tendenciasContainer">
+                    <div class="tendencias_txt">
+                        <h2 id="resultadosBusqueda">Tendencias</h2>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda"  alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                    <div class="gif_tendencias">
+                        <img class="img_busqueda" alt="" />
+                        <div class="foot_gif"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+    <script src="./scripts/main.js"></script>
+</html>
