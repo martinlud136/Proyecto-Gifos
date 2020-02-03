@@ -18,7 +18,7 @@ function cambioAPrecaptura(){
 function cambioACapturando(){
     // Camnbio de iconos y pantalla
     document.querySelector('.btn-Capturar').style.display = 'none';
-    document.querySelector('.timer').style.display = 'block';
+    document.querySelector('.timer').style.display = 'flex';
     document.querySelector('.btn-listo').style.display = 'block';
 }
 function cambioAVista(){
@@ -37,9 +37,10 @@ function cambioASubiendo(){
     document.querySelector('.esperaSubiendo').style.display = 'flex'
     document.querySelector('#gifSubiendo').style.display = 'none'
     document.querySelector('.display').style.display = 'none'
-    document.getElementsByClassName('barraProgreso')[0].style.display = 'none';
+    document.getElementsByClassName('barraProgreso')[0].style.display = 'flex';
     document.querySelector('.btn-RepetirCaptura').style.display = 'none';
     document.querySelector('.btn-SubirGifo').style.display = 'none';
+    document.querySelector('.timer').style.display = 'none';
     document.querySelector('.vistaPlay').style.display = 'none';
     document.getElementsByClassName('creandoGifosButtons')[1].className = 'creandoGifosButtons';
     document.querySelector('.btn-Cancelar').style.display = 'block';
@@ -93,7 +94,6 @@ function informarUrlCopiada(){
     
 }
 
-
 // Acciones al obtener el video
 const video = document.getElementById('video');
 let recorder; 
@@ -103,6 +103,7 @@ async function stopRecordingCallback() {
     let blob = await recorder.getBlob();
     const video_url = URL.createObjectURL(blob);
 
+    console.log('ACA ESTA EL BLOB', blob)
     //Guardando el url del gif grabado en src de un tag img
     let contenedor = document.querySelector("#gif-cont");
     let div = document.createElement('div')
@@ -110,7 +111,9 @@ async function stopRecordingCallback() {
     div.id = 'gifSubiendo'
     div.innerHTML = `<img src="${video_url}" class="display">` 
     contenedor.appendChild(div)
+    
     recorder.stream.stop()
+    recorder = null;
     document.querySelector('.btn-SubirGifo').onclick =  async function obtenerBlob(){        
         subirVideo(blob)
         
@@ -134,6 +137,25 @@ async function obtenerVideo() {
 
 };
 
+function calculateTimeDuration(secs) {
+    var hr = Math.floor(secs / 3600);
+    var min = Math.floor((secs - (hr * 3600)) / 60);
+    var sec = Math.floor(secs - (hr * 3600) - (min * 60));
+
+    if (min < 10) {
+        min = "0" + min;
+    }
+
+    if (sec < 10) {
+        sec = "0" + sec;
+    }
+
+    if(hr <= 0) {
+        return min + ':' + sec;
+    }
+
+    return hr + ':' + min + ':' + sec;
+}
 
 document.querySelector('.btn-Capturar').onclick= async function grabarVideo(){
 
@@ -153,19 +175,30 @@ document.querySelector('.btn-Capturar').onclick= async function grabarVideo(){
         quality: 10,
         width: 360,
         hidden: 240,
+        timeSlice: 1000,
         onGifRecordingStarted: function() {
         console.log('started')
         },
     });
 
     await recorder.startRecording();
+    dateStarted = new Date().getTime();
+    (function looper() {
+        if(!recorder) {
+            return;
+        }
+
+        document.querySelector('.timer').innerHTML = calculateTimeDuration((new Date().getTime() - dateStarted) / 1000);
+
+        setTimeout(looper, 1000);
+    })();
 
     recorder.stream = stream;
 
 }
 
 document.querySelector('.btn-listo').onclick = async function() {
-
+    
     cambioAVista();
     await recorder.stopRecording();
     stopRecordingCallback();
@@ -181,25 +214,32 @@ function subirVideo(blob){
         // Obtener el formato para subir el gif
         let form = new FormData();
         form.append("file", blob, "myGif.gif")
-        //posteo de gif capturado
-        fetch("http://upload.giphy.com/v1/gifs?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW",{
-        method: "POST",
-        body: form
+
+
+
+
+        //experimento-------------------------------------------------------------------------------------------------
+        
+        function reqListener () {
+            console.log(xhr);
+            guardarDataDeJSON(JSON.parse(xhr.response))
+          }
+        let xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", reqListener);
+        xhr.open("POST", "http://upload.giphy.com/v1/gifs?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW");
+        xhr.upload.addEventListener('progress', e =>{
+            const porcentaje = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
+            
+            let barraCarga = document.querySelector('.barraProgCarga')
+            barraCarga.style.width = porcentaje.toFixed() + "%"
+            
         })
-        .then(function(response){
-            if(response.ok){
-                return response.json();
-            }else{
-                console.log("respuesta de red no OK")
-            }
-        })
-        // Procesar el JSON con ID de gif cargado
-        .then((json)=>{guardarDataDeJSON(json)})
+        xhr.send(form);
 }
 
 function guardarDataDeJSON(myJson){
     // Fetch a giphy con id de gif subido para recibir los datos del mismo
-    console.log("id de JSON en respuesta al POST", myJson.data.id);
+    console.log("id de JSON en respuesta al POST", myJson);
     let response = fetch("http://api.giphy.com/v1/gifs?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&ids=" + `${myJson.data.id}`)
     response
             .then((response)=> response.json())

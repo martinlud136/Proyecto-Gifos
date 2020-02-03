@@ -656,7 +656,7 @@ header{
 
 //estilado captura gifos precaptura
 .enCaptura{
-    display: none;
+    display: none;//-------------------------------------------------------------------
 }
 //Estilado vista de video 
 .chequeoCont{
@@ -680,6 +680,7 @@ header{
             margin: auto;
             margin-top: 3px;
             .display{
+                display: block;////------------------------------------------------
                 width: 580px;
                 height: 100%;
             }
@@ -719,9 +720,11 @@ header{
 }
 //Timer
 .timer{
-    display: none; //NONE Y BLOCK
+    display: none; //NONE Y BLOC
     width: 124px;
     height: 36px;
+    justify-content: center;
+    align-items: center;
     margin-left: 11px;
     margin-right: 550px;
     border: 1px solid #979797;
@@ -831,7 +834,7 @@ header{
     &::before{
         content: url(../assets/forward.svg);
         position: absolute;
-        top: -2px;
+        top: 1px;
         left: 7px;
         display: flex;
         align-items: center;
@@ -889,16 +892,27 @@ header{
     .barraProgreso{
         width: 324px;
         height: 24px;
-        border: 1px solid;
+        padding-left: 2px;
+        position: relative;
         background-color: #B4B4B4;
         box-shadow: inset 2px 2px 0px 0px #000000, inset -2px -2px 0px 0px #FFFCFC;
-        display: grid;
-        grid-template-columns: 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px 12px;
-        grid-template-rows: 20px;
-        grid-column-gap: 2px;
-        align-content: center;
-        justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
         margin-bottom: 8px;
+        .barraProgCarga{
+            position: absolute;
+            max-width: 321px;
+            background-color: #F7C9F3;
+            height: 20px;
+        }
+        .barrasVert{
+            z-index: 1;
+            margin-left: 12px;
+            height: 20px;
+            width: 2px;
+            background-color: #B4B4B4;
+        }
     }
     .txt2{
         display: block;
