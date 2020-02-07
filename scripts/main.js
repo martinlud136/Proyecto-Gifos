@@ -8,7 +8,7 @@ async function buscarResultados(){
     valorBusqueda = document.getElementById("imput_text").value
     console.log(valorBusqueda)
     //busqueda en la API de giphy
-    const response = await fetch("http://api.giphy.com/v1/gifs/search?q=" + valorBusqueda + "&api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&limit=12&lang=es")
+    const response = await fetch("https://api.giphy.com/v1/gifs/search?q=" + valorBusqueda + "&api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&limit=12&lang=es")
     const data = await response.json();
     //se oculta la seccion sugerimos al realizar la busqueda
     let sugerimosContainer = document.getElementsByClassName("sugerimosContainer")[0]
@@ -37,7 +37,7 @@ async function buscarResultados(){
 let imput_text = document.getElementById("imput_text")
 
 imput_text.addEventListener("input", async function(){
-    let response = await fetch("http://api.giphy.com/v1/gifs/search?q=" + imput_text.value + "&api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&limit=12")
+    let response = await fetch("https://api.giphy.com/v1/gifs/search?q=" + imput_text.value + "&api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&limit=12")
     let data = await response.json();
     const lista = document.getElementsByClassName("listaSugeridaContent")[0]
 // impresiones de resultados de busqueda en HTML y condicion si el valor ingresado es 0    
@@ -144,7 +144,7 @@ const imagenesArr = [...imagenes]
 let dataTendencias;
 async function cargaTendencias(){
     try{
-        const response = await fetch("http://api.giphy.com/v1/gifs/trending?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&limit=12&lang=es")
+        const response = await fetch("https://api.giphy.com/v1/gifs/trending?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&limit=12&lang=es")
         dataTendencias = await response.json();
         //Ajuste de ancho de columnas
         ajusteAncho();
@@ -172,7 +172,7 @@ let dataSugerimos;
 
 async function cargaSugerimos(){
     try{
-        const response = await fetch("http://api.giphy.com/v1/gifs/trending?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&limit=17&lang=es")
+        const response = await fetch("https://api.giphy.com/v1/gifs/trending?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&limit=17&lang=es")
         dataSugerimos = await response.json();
         //Cambio de titulos en sugerencias
         cambioTitulos();
@@ -222,14 +222,15 @@ btn_elegirTema.addEventListener("click", function(e){
 let day = document.querySelector(".day");
 let nigth = document.querySelector(".night")
 let linkStyle = document.getElementById("cambiarStyle")
-let capturaStyle = document.querySelector(".capturaStyle")
 
 //Carga del estilo guardado
 document.addEventListener('DOMContentLoaded', (e)=>{
     if(localStorage.getItem('estilos')){
         const estilo = localStorage.getItem('estilos')
         linkStyle.setAttribute('href', `./styles/${estilo}`)
-    }   
+    } else{
+        localStorage.setItem('estilos', 'styles.css')
+    }
 })
 
 //funcion estilo day

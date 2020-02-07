@@ -212,7 +212,7 @@ function subirVideo(blob){
           }
         let xhr = new XMLHttpRequest();
         xhr.addEventListener("load", reqListener);
-        xhr.open("POST", "http://upload.giphy.com/v1/gifs?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW");
+        xhr.open("POST", "https://upload.giphy.com/v1/gifs?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW");
         xhr.upload.addEventListener('progress', e =>{
             const porcentaje = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
             
@@ -225,7 +225,7 @@ function subirVideo(blob){
 // request del gif grabado y subido para almacenarlo en local storage
 function guardarDataDeJSON(myJson){
 
-    let response = fetch("http://api.giphy.com/v1/gifs?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&ids=" + `${myJson.data.id}`)
+    let response = fetch("https://api.giphy.com/v1/gifs?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&ids=" + `${myJson.data.id}`)
     response
             .then((response)=> response.json())
             // Guardar en localStorage data de gif recibido
