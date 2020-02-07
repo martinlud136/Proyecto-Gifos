@@ -108,8 +108,8 @@ function obtenerBusquedas(){
 // Añadir las busquedas a localStorage
 function agregarBusquedas(busqueda){
     let busquedas = obtenerBusquedas();
-    busquedas.push(busqueda)
-    localStorage.setItem('busquedas', JSON.stringify(busquedas))
+    busquedas.unshift(busqueda)
+    localStorage.setItem('busquedas', JSON.stringify(busquedas));
 }
 //Carga de botones con los resultados de búsquedas anteriores
 function desplegarBusquedas(busqueda){
@@ -118,7 +118,7 @@ function desplegarBusquedas(busqueda){
     lista.innerHTML = `
     <button class="resultadoBusqueda">#${busqueda}</button>
     `
-    container.insertBefore(lista, container.firstElementChild)
+    container.insertBefore(lista, lista.nextSibling)
 }
 // Carga de busquedas guardadas
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -138,7 +138,6 @@ document.querySelector('.resultadoBusquedaContent').addEventListener('click',(e)
 })
 
 //Carga de los Gifts tendencias
-
 const imagenes = document.getElementsByClassName("img_busqueda");
 const imagenesArr = [...imagenes]
 
@@ -211,8 +210,9 @@ btnVermas.addEventListener('click',(e)=>{
 // funcionalidad day-nigth
 let btn_elegirTema = document.querySelector(".btn_elegirtema");
 let btn_dropContent = document.querySelector(".btn_dropContent")
-// boton desplegable
 
+
+// boton desplegable
 btn_elegirTema.addEventListener("click", function(e){
     e.stopPropagation()
     btn_dropContent.classList.toggle("mostrar_dropContent");
@@ -233,7 +233,6 @@ document.addEventListener('DOMContentLoaded', (e)=>{
 })
 
 //funcion estilo day
-
 day.addEventListener("click", function(){
     if(linkStyle.attributes[2].nodeValue === "./styles/styles.css"){
 
@@ -244,7 +243,6 @@ day.addEventListener("click", function(){
 })
 
 //funcion estilo night
-
 nigth.addEventListener("click", function(){
     if(linkStyle.attributes[2].nodeValue === "./styles/stylesNight.css"){
         
@@ -268,4 +266,10 @@ document.querySelector('.enlace_misGuifos').addEventListener('click',()=>{
     localStorage.setItem('misgifos', 'display')
     document.querySelector('.inicio').style.display = 'none'
 
+});
+
+// Evento click en btn Crear Gifos
+document.querySelector('.btn_creargifos').addEventListener('click',()=>{
+    window.location.href = "./styles/capturaGifos/capturaGifos.html";
+    document.querySelector('.inicio').style.display = 'block'
 });

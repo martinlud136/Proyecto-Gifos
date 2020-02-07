@@ -1,27 +1,18 @@
 //1-Utilities
 @import "./utilities/reset.scss";
 $fuente: 'Chakra Petch', sans-serif;
-// outline: none;<------para sacar lo azul
-// box-shadow: inset -1px -1px 0px 0px #A72CB3, inset 1px 1px 0px 0px #FFFFFF;
-//background: linear-gradient(to right, rgba(46,50,251,1) 0%, rgba(238,62,239,1) 100%);
-// &:hover {
-//     cursor: pointer;
-//     outline: 1px dotted #110038;
-//     outline-offset: -4px; 
-// }
-
 
 body {
     width: 100vw;
     background-color: #110038;
-    // overflow-x: hidden;
+    overflow-x: hidden;
 }
 .content{
     background-color: #110038;
     height: 100%;
 }
 //barra superior
-.visit_count { //listo nigth
+.visit_count { 
     width: 100vw;
     height: 23px;
     margin: auto;
@@ -40,14 +31,14 @@ header{
     position: sticky;
     top: 0;
     z-index: 2;
-    .encabezado{ //falta
+    .encabezado{ 
         width: 1200px;
         margin: auto;
     }
 }
 
 //sector de icono y tres botones del encabezado
-.icon_btns{//listo night
+.icon_btns{
     display: grid;
     grid-template-columns: 685.4px 144px 167px auto;
     grid-gap: 16px;
@@ -57,12 +48,12 @@ header{
     z-index: 1;
     background-color: #110038;
     margin-top: 1px;
-    .logo{//listo night
+    .logo{
         content: url(../assets/gifOF_logo_dark.png);
         width: 100px;
         height: 50px;
     }  
-    .btn_creargifos{ //listo night
+    .btn_creargifos{ 
         outline: none;
         color: #FFFFFF;
         width: 144px;
@@ -84,7 +75,7 @@ header{
     }
     }
     // estilado de boton principal
-    .btn_dropDown{ //listo
+    .btn_dropDown{ 
         width: 167px;
         height: 36px;
         .btn_elegirtema {
@@ -136,17 +127,17 @@ header{
         }
     }
     // estilado botones desplegables
-    .btn_dropDown {//listo
+    .btn_dropDown {
         position: relative;
         display: inline-block;
         .btn_dropContent{
-            display: none; //aca se esconde el menu
+            display: none; 
             padding: 0px;
             margin-top: 2px;
             background-color: #B4B4B4;
             box-shadow: inset -2px -2px 0px 0px #8F8F8F, inset 2px 2px 0px 0px #FFFFFF;
             text-align: center;
-            position: absolute; //respecto del contenedor  
+            position: absolute;  
             li  {                       
                 margin: 10px;
                 list-style: none;
@@ -183,7 +174,7 @@ header{
         }
     }
     // estilado boton mis gifos
-    .enlace_misGuifos{//listo
+    .enlace_misGuifos{
         width: 95px;
         height: 38px;
         font-size: 16px;
@@ -210,8 +201,8 @@ header{
 
 }
 
-//barra buscar (aca en estado normal incluido)
-.imput_buscar { //listo night
+//barra buscar 
+.imput_buscar { 
     margin: 0px auto 0px auto;
     width: 1200px;
     height: 99px;
@@ -233,7 +224,7 @@ header{
         }
     }
     //imput en estado normarl
-    .buscarContainer{ //listo night
+    .buscarContainer{ 
         height: 75px;
         display: grid;
         grid-template-columns: 1057px 102px;
@@ -258,7 +249,7 @@ header{
             background-color: #b4b4b4;
             border: 1px solid #808080;
             box-shadow: inset -1px -1px 0px 0px #B4B4B4 , inset 1px 1px 0px 0px #FFFFFF;
-            p{
+            span{
                 color: #8f8f8f;
                 opacity: 0.8;
                 font-size: 16px;
@@ -276,7 +267,7 @@ header{
     }
 }
 //en estado imput
-.imput_buscar{ //listo(display none comentado) (listo night)
+.imput_buscar{ 
     &:focus-within{
         .btn_buscar{
             outline: none;
@@ -286,7 +277,7 @@ header{
             &:hover{
                 cursor: pointer;
             }
-            P{
+            span{
                 color: #FFFFFF;
                 &::before{
                     content: url(../assets/lupa_light.svg);
@@ -296,13 +287,13 @@ header{
         }
     }
     .buscarContainer{
-        position: relative;//despliegue de menu
+        position: relative;
         .imput_text{
             font-size: 16px;
             color:#110038;
             padding-left: 16px;
         }
-        .listaSugeridaContent{ //FALTA ACTIVAR/DESACTIVAR DISPLAY NONE (listo night)
+        .listaSugeridaContent{ 
             li{
                 list-style: none;
             }
@@ -313,9 +304,9 @@ header{
             grid-template-rows: 34px 34px 34px;
             align-content: center;
             row-gap: 11px;
-            position: absolute;//respecto del buscarContainer
+            position: absolute;
             top: 75px;
-            display: none; //comentar cuando trabaje con resultados sugeridos
+            display: none;
             z-index: 3;
             width: 1200px;
             height: 160px;
@@ -329,7 +320,7 @@ header{
                 border: 1px solid #808080;
                 text-align: left;
                 box-shadow: inset -1px -1px 0px 0px #b4b4b4 , inset 1px 1px 0px 0px #FFFFFF;
-                p {
+                span{
                     padding-left: 16px;
                 }
                 &:hover {
@@ -339,7 +330,7 @@ header{
                     } 
             }
         }
-        .resultadoBusquedaContent{// el resultado esta oculto (listo night)
+        .resultadoBusquedaContent{
             position: absolute;
             display: flex;
             max-width: 1200px;
@@ -366,7 +357,7 @@ header{
     }
 }
 //en estado active
-.imput_buscar{//listo night
+.imput_buscar{
     .buscarContainer{
         .btn_buscar{
             &:active{
@@ -380,16 +371,16 @@ header{
 //MAIN CONTENT
 
 //SECCION SUGERIMOS
-.sugerimosContainer{//listo night
+.sugerimosContainer{
     height: 425px;
     width: 1200px;
     margin: 64px auto 0 auto;
     display: grid;
-    grid-template-columns: 288px 288px 288px 288px;//ANCHO DE LAS VENTANAS
+    grid-template-columns: 288px 288px 288px 288px;
     grid-template-rows: 32px 313px;
     grid-row-gap: 16px;
     justify-content: space-between;
-    .sugerimos{ //listo night
+    .sugerimos{
         display: flex;
         align-items: center;
         background-color: #fffafe;
@@ -404,7 +395,7 @@ header{
             color: #110038;
         }
     }
-    .gifos{//listo
+    .gifos{
         background-color:#B4B4B4;
         height: 313px;  
         box-shadow: inset -2px -2px 0px 0px #5C5C5C, inset 2px 2px 0px 0px #FFFFFF;
@@ -483,7 +474,7 @@ header{
 }
 
 //SECCION TENDENCIAS
-.tendenciasContainer{//listo night
+.tendenciasContainer{
     max-width: 1200px;
     margin: auto;
     display: grid;
@@ -508,7 +499,7 @@ header{
             color: #110038;
         }
     }
-    .gif_tendencias{//listo night
+    .gif_tendencias{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -631,7 +622,7 @@ header{
                 width: 144px;
                 height: 36px;
                 border: 1px solid #808080;
-                margin-right: 16px;//falta margin right de comenzar
+                margin-right: 16px;
                 box-shadow: inset -1px -1px 0px 0px #B4B4B4, inset 1px 1px 0px 0px #FFFFFF;
                 font-size: 16px;
                 a{
@@ -648,7 +639,7 @@ header{
                 width: 144px;
                 height: 36px;
                 border: 1px solid #110038;
-                margin-right: 16px;//falta margin right de comenzar
+                margin-right: 16px;
                 box-shadow: inset -1px -1px 0px 0px #A72CB3, inset 1px 1px 0px 0px #FFFFFF;
                 font-size: 16px;
                 &:hover{
@@ -693,14 +684,14 @@ header{
 }
 //btn-Capturar
 .btn-Capturar{
-    display: block; // NONE Y BLOCK
+    display: block; 
     background-color: #EE3EFE;
     color: #FFFFFF;
     outline: none;
     width: 144px;
     height: 38px;
     border: 1px solid #110038;
-    margin-right: 16px;//falta margin right de comenzar
+    margin-right: 16px;
     box-shadow: inset -1px -1px 0px 0px #A72CB3, inset 1px 1px 0px 0px #FFFFFF;
     font-size: 16px;
     position: relative;
@@ -719,13 +710,13 @@ header{
         box-shadow: inset -1px -1px 0px 0px #997D97, inset 1px 1px 0px 0px #FFFFFF;            
         width: 36px;
         border: 1px solid #110038;
-        height: 31px;//alinear el boton
-        padding-top: 5px;//para alinear el boton
+        height: 31px;
+        padding-top: 5px;
     }
 }
 //Timer
 .timer{
-    display: none; //NONE Y BLOCK
+    display: none; 
     width: 124px;
     height: 36px;
     justify-content: center;
@@ -738,7 +729,7 @@ header{
 }
 //Estilado boton listo
 .btn-listo{
-    display: none; // BLOCK Y NONE
+    display: none; 
     background-color: #FF6161;
     color: #FFFFFF;
     outline: none;
@@ -771,14 +762,14 @@ header{
 }
 //Estilado boton subir Gifo
 .btn-SubirGifo{
-    display: none; //BLOCK Y NONE
+    display: none; 
     background-color: #EE3EFE;
     color: #FFFFFF;
     outline: none;
     width: 144px;
     height: 36px;
     border: 1px solid #110038;
-    margin-right: 16px;//falta margin right de comenzar
+    margin-right: 16px;
     box-shadow: inset -1px -1px 0px 0px #997D97, inset 1px 1px 0px 0px #FFFFFF;
     font-size: 16px;
     &:hover{
@@ -796,7 +787,7 @@ header{
     width: 144px;
     height: 36px;
     border: 1px solid #B4B4B4;
-    margin-right: 16px;//falta margin right de comenzar
+    margin-right: 16px;
     box-shadow: inset -1px -1px 0px 0px #5C5C5C , inset 1px 1px 0px 0px #FFF4FD;
     font-size: 16px;
     &:hover{
@@ -813,8 +804,8 @@ header{
         display: flex;
         align-content: center;
         justify-content: flex-end;
-        .barraProgreso{//esta colocado el grid pero falta establecer la barra
-            display: none; // GRID Y NONE
+        .barraProgreso{
+            display: none;
             width: 240px;
             height: 24px;
             margin-right: 119px;
@@ -832,7 +823,7 @@ header{
     }
 }
 .vistaPlay{
-    display: none; //BLOCK Y NONE
+    display: none; 
     width: 20px;
     height: 20px;
     margin-right: 6px;
@@ -869,7 +860,7 @@ header{
 }
 
 // Estilado barra de progreso subiendo guifo
-.chequeoImagen{ //agregar chequeo imagen en Creandoguifos instrucciones y luego sacar video del html
+.chequeoImagen{ 
     display: flex;
     align-content: center;
     justify-content: center;
@@ -878,7 +869,7 @@ header{
         height: 163px;
         width: 324px;
         margin-top: 139px;
-        display: none; //FLEX Y NONE
+        display: none; 
         flex-wrap: wrap;
         justify-content: center;
         .globoTerraqueo{
@@ -939,7 +930,7 @@ header{
     width: 144px;
     height: 36px;
     border: 1px solid #808080;
-    margin-right: 16px;//falta margin right de comenzar
+    margin-right: 16px;
     box-shadow: inset -1px -1px 0px 0px #B4B4B4, inset 1px 1px 0px 0px #FFFFFF;
     font-size: 16px;
     &:hover{
@@ -980,7 +971,7 @@ header{
     .exitoElementos{
         margin-left: 24px;
         margin-top: 27px;
-        width: 653px;//cambiar a 51 luego de hacer botones
+        width: 653px;
         height: 293px;
         display: flex;
         .gifoPrevis{
@@ -1017,7 +1008,7 @@ header{
                 width: 256px;
                 height: 36px;
                 border: 1px solid #808080;
-                margin-right: 16px;//falta margin right de comenzar
+                margin-right: 16px;
                 box-shadow: inset -1px -1px 0px 0px #B4B4B4, inset 1px 1px 0px 0px #FFFFFF;
                 font-size: 16px;
                 &:hover{
@@ -1034,7 +1025,7 @@ header{
                 width: 240px;
                 height: 36px;
                 border: 1px solid #808080;
-                margin-right: 16px;//falta margin right de comenzar
+                margin-right: 16px;
                 box-shadow: inset -1px -1px 0px 0px #B4B4B4, inset 1px 1px 0px 0px #FFFFFF;
                 font-size: 16px;
                 &:hover{
@@ -1053,7 +1044,7 @@ header{
                 width: 144px;
                 height: 36px;
                 border: 1px solid #110038;
-                margin-right: 16px;//falta margin right de comenzar
+                margin-right: 16px;
                 box-shadow: inset -1px -1px 0px 0px #997D97, inset 1px 1px 0px 0px #FFFFFF;
                 font-size: 16px;
                 &:hover{
@@ -1063,6 +1054,6 @@ header{
         }
     }
 }
-.exitoMargenSup{//margen de seccion gifos en captura exito
+.exitoMargenSup{
     margin-top: 180px;
 }

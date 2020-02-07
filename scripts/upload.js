@@ -69,12 +69,7 @@ function displayGifs(){
     const gifs =  obtenerGif()
     gifs.forEach((gif)=>{agregarGifEnPantalla(gif)});
 }
-function agregarGifEnPantallaExito(gif){
-    const cont = document.querySelector('.gifoPrevis');
-    cont.innerHTML =`
-    <img src="${gif.url}"/>
-    `
-}
+
 function agregarGifEnPantalla(gif){
     const cont = document.querySelector('.misGifosCont')
     const div = document.createElement('div')
@@ -85,6 +80,14 @@ function agregarGifEnPantalla(gif){
     `
     cont.appendChild(div)
 }
+// Previsuliar gif creado
+function agregarGifEnPantallaExito(gif){
+    const cont = document.querySelector('.gifoPrevis');
+    cont.innerHTML =`
+    <img src="${gif.url}"/>
+    `
+}
+// Accion al hacer click en copiar url
 function informarUrlCopiada(){
     let btn_copiarEnlace = document.querySelector('.btn-copiarExito')
     btn_copiarEnlace.innerText = '¡Enlace Copiado!'
@@ -98,12 +101,12 @@ function informarUrlCopiada(){
 const video = document.getElementById('video');
 let recorder; 
 
+// Callback par dentener la grabacion del video
 async function stopRecordingCallback() {
     video.srcObject = null;
     let blob = await recorder.getBlob();
     const video_url = URL.createObjectURL(blob);
 
-    console.log('ACA ESTA EL BLOB', blob)
     //Guardando el url del gif grabado en src de un tag img
     let contenedor = document.querySelector("#gif-cont");
     let div = document.createElement('div')
@@ -119,9 +122,8 @@ async function stopRecordingCallback() {
         
     }
 }
-
+//Obtener video de camara
 async function obtenerVideo() {
-    //Cambiar al siguente paso
     cambioAPrecaptura();
 
     let stream = await navigator.mediaDevices.getUserMedia({
@@ -134,9 +136,8 @@ async function obtenerVideo() {
 
     video.srcObject = stream;   
     video.play()
-
 };
-
+//Calcula y desplega en pantalla la duracion del gif
 function calculateTimeDuration(secs) {
     var hr = Math.floor(secs / 3600);
     var min = Math.floor((secs - (hr * 3600)) / 60);
@@ -156,11 +157,9 @@ function calculateTimeDuration(secs) {
 
     return hr + ':' + min + ':' + sec;
 }
-
+//Grabar video
 document.querySelector('.btn-Capturar').onclick= async function grabarVideo(){
-
     cambioACapturando();
-
     let stream = await navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {
@@ -180,23 +179,18 @@ document.querySelector('.btn-Capturar').onclick= async function grabarVideo(){
         console.log('started')
         },
     });
-
     await recorder.startRecording();
     dateStarted = new Date().getTime();
     (function looper() {
         if(!recorder) {
             return;
         }
-
         document.querySelector('.timer').innerHTML = calculateTimeDuration((new Date().getTime() - dateStarted) / 1000);
-
         setTimeout(looper, 1000);
     })();
-
     recorder.stream = stream;
-
 }
-
+//Deneter la grabacion del video
 document.querySelector('.btn-listo').onclick = async function() {
     
     cambioAVista();
@@ -205,23 +199,15 @@ document.querySelector('.btn-listo').onclick = async function() {
 
 };
 
-
+//Subir video al servidor
 function subirVideo(blob){
-        
         // Cambio de pantalla y botones
-        cambioASubiendo();            
-
+        cambioASubiendo();           
         // Obtener el formato para subir el gif
         let form = new FormData();
         form.append("file", blob, "myGif.gif")
-
-
-
-
-        //experimento-------------------------------------------------------------------------------------------------
         
         function reqListener () {
-            console.log(xhr);
             guardarDataDeJSON(JSON.parse(xhr.response))
           }
         let xhr = new XMLHttpRequest();
@@ -236,10 +222,9 @@ function subirVideo(blob){
         })
         xhr.send(form);
 }
-
+// request del gif grabado y subido para almacenarlo en local storage
 function guardarDataDeJSON(myJson){
-    // Fetch a giphy con id de gif subido para recibir los datos del mismo
-    console.log("id de JSON en respuesta al POST", myJson);
+
     let response = fetch("http://api.giphy.com/v1/gifs?api_key=uNch8732T9PG8VQBtWzuHnHx7q2woIsW&ids=" + `${myJson.data.id}`)
     response
             .then((response)=> response.json())
@@ -250,8 +235,8 @@ function guardarDataDeJSON(myJson){
 
 // Acciones en localStorage
 
+//obtener gifs de localStorage
 function obtenerGif(){
-    //obtener gifs de localStorage
     let gifs;
     if(localStorage.getItem('gifs')===null){
         gifs =[];
@@ -260,6 +245,7 @@ function obtenerGif(){
     }
     return gifs
 }
+//Guardar  gif creado en local storage y luego desplegar en pantalla
 function agregarGif(myJson){
     // Obtengo Id y url de la data del JSON
     let id = myJson.data[0].id
@@ -270,14 +256,13 @@ function agregarGif(myJson){
     const gifs = obtenerGif();
     //Agrego el gif a local storage
     gifs.push(gif)
-    console.log('array de gif a guardar',gifs)
     localStorage.setItem('gifs', JSON.stringify(gifs))
     // Cambio de pantalla y botones
     cambioAExito(gif);
     //despliego el gif en pantalla
     agregarGifEnPantalla(gif);       
 }
-
+// Copiar enlace de gif creado
 function copiarUrlEnPortapapeles(){
     const gifs = obtenerGif();
     const ultimoGif = gifs.pop()
